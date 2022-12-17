@@ -25,3 +25,17 @@ body{
     width: 100%;
 }
 
+.super-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%; /* or any other desired width */
+    height: 80%; /* or any other desired height */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  
+  
