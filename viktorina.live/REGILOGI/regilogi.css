@@ -10,7 +10,7 @@
 
 body {
 	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("C:\xampp\htdocs\VK\Viktorina\img_cover\cover5.jpg"); 
-    background-image: url('/images/background/cover5.jpg');  
+    background-image: url('/viktorina.live/images/background/cover5.jpg');  
     background-size: cover; 
 	display: flex;
 	justify-content: center;
@@ -76,8 +76,11 @@ button {
 	cursor: pointer;
 }
 
+
+
 button:active {
 	transform: scale(0.95);
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
 button:focus {
