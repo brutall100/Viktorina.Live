@@ -69,6 +69,8 @@ function displayLettersWithDelay(element, string, delay) {
   }
 }
 
+
+
 function generateAndDisplayRandomPoint() {
   // Generate a random point from 1 to 5
   const randomPoint = Math.floor(Math.random() * 5) + 1;
@@ -95,7 +97,23 @@ function refreshPage() {
 displayQuestionAndAnswers();
 generateAndDisplayRandomPoint();
 refreshPage();
+displayLetters(container, answers.length);
 
+
+ // Get a reference to the form element
+ const form = document.getElementById('answer-form');
+
+ // Add an event listener to the form to handle submit events
+ form.addEventListener('submit', event => {
+   // Prevent the default form submission behavior
+   event.preventDefault();
+
+   // Get the value of the answer input field
+   const answer = event.target.elements.answer.value;
+
+   // Do something with the answer, such as sending it to a server or processing it in some way
+   // ...
+ })
    
   
 

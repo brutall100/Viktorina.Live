@@ -5,29 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Viktorina.live</title>
 </head>
 <body>
-    <div class="header">
-        <object data="Header/header.html" class="imported-header"></object>
-    </div> 
-    <button id="refresh-button" 
-    class="refresh-button">Rankinis refresh
-    </button>
-
-
-
-    <div class="super-container">
+    <header class="header">
+      <object data="Header/header.html" class="imported-header"></object>
+    </header>
+  
+    <!-- <button id="refresh-button">Rankinis refresh</button> -->
+  
+    <main class="super-container">
         <div class="super" id="points"></div>
         <div class="super" id="question"></div>
         <div class="super" id="answers"></div>
-    </div>
+    
+        <form id="answer-form">
+          <label for="answer-input">Answer:</label>
+          <input type="text" id="answer-input" name="answer">
+          <button type="submit">Submit</button>
+        </form>
+      </main>
 
-    <div class="footer">
-        <object data="Footer/footer.html" class="imported-footer"></object>
-    </div>
-<script src="index.js"></script>    
-</body>
+      <div id="container">     
+      </div>
+      
+  
+    <footer class="footer">
+      <object data="Footer/footer.html" class="imported-footer"></object>
+    </footer>
+  
+    <script src="index.js"></script>    
+  </body>
+  
 </html>
 
 
