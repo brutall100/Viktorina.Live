@@ -1,14 +1,3 @@
-// const fs = require('fs');
-
-// fs.readFile('header.html', (err, data) => {
-//   if (err) throw err;
-
-//   fs.writeFile('index.html', data, (err) => {
-//     if (err) throw err;
-//     console.log('File saved successfully!');
-//   });
-// });
-
 const database = {
   1: {
     question: "What is the capital of France?",
@@ -60,6 +49,19 @@ function displayQuestionAndAnswers() {
     document.getElementById("answers").appendChild(answerElement);
   });
 }
+
+let dots = "";
+  for (let i = 0; i < answers.length; i++) {
+    dots += ".";
+  }
+
+  // Output the question and dots in the container div element
+  const container = document.getElementById("container");
+  const questionDiv = document.createElement("div");
+  questionDiv.innerHTML = `${question} (${dots})`;
+  container.appendChild(questionDiv);
+
+
 
 function displayLettersWithDelay(element, string, delay) {
   for (let i = 0; i < 4; i++) {
