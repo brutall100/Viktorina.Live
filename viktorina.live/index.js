@@ -85,7 +85,7 @@ function generateBonusPoints() {
     const randomNumber = Math.floor(Math.random() * 5);
     if (randomNumber === 0) {
       return 10;
-    } else if (randomNumber === 1) {/// Darius girenas
+    } else if (randomNumber === 1) {
       return 20;
     } else if (randomNumber === 2) {
       return 30;
@@ -100,12 +100,14 @@ function generateBonusPoints() {
 }
 
 const pointsElement = document.getElementById('bonus-points');
+const imageElement = document.getElementById('litai-img');
 const bonusPoint = generateBonusPoints();
 if (bonusPoint > 0) {
-  pointsElement.innerHTML += `+ Bonus: ${bonusPoint}`;
-  pointsElement.classList.remove('hidden-bonus');
-}
-
+  pointsElement.innerHTML = `+ Bonus: ${bonusPoint}`;
+  imageElement.innerHTML = `<img src="/viktorina.live/images/ImgLitai/${bonusPoint}Lt.png" alt="${bonusPoint} Lt">`; // 
+} else {
+  pointsElement.style.display = "none";
+}  
 
 
 

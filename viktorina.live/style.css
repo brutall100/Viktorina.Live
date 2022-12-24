@@ -39,7 +39,7 @@ body {
 
 .litas-container {
     position: absolute;
-    bottom: 10%;
+    bottom: 22%;
     left: 50%; /* Change the left position to 50% */
     transform: translate(-50%, 0); /* Use translate to adjust the element's position */
     display: flex;
@@ -51,6 +51,12 @@ body {
     /* border: 1px solid black; */
 
   }
+
+  .points-container .super {
+    float: left;
+  }
+  
+  
   
   .hidden-bonus {
     display: none;
