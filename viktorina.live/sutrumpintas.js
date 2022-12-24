@@ -159,4 +159,38 @@ function generateAndDisplayRandomPoint() {
     }
   }
   const bonus = generateBonusPoints();
+
+
+  //b
+  function generateBonusPoints() {
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    const randomHour = Math.floor(Math.random() * 24);
+    if (currentHour === randomHour) {
+      const randomNumber = Math.floor(Math.random() * 5);
+      if (randomNumber === 0) {
+        return 10;
+      } else if (randomNumber === 1) {
+        return 20;
+      } else if (randomNumber === 2) {
+        return 30;
+      } else if (randomNumber === 3) {
+        return 40;
+      } else if (randomNumber === 4) {
+        return 50;
+      }
+    } else {
+      return 0;
+    }
+  }
+  
+  const pointsElement = document.getElementById('bonus-points');
+  const imageElement = document.getElementById('litai-img');
+  const bonusPoint = generateBonusPoints();
+  if (bonusPoint > 0) {
+    pointsElement.innerHTML = `+ Bonus: ${bonusPoint}`;
+    imageElement.innerHTML = `<img src="/viktorina.live/images/ImgLitai/${bonusPoint}Lt.png" alt="${bonusPoint} Lt">`; // 
+  } else {
+    pointsElement.style.display = "none";
+  }
   
