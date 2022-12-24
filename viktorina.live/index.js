@@ -76,6 +76,39 @@ function displayLettersWithDelay(element, string, delay) {
   }
 }
 
+
+function generateBonusPoints() {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+  const randomHour = Math.floor(Math.random() * 24);
+  if (currentHour === randomHour) {
+    const randomNumber = Math.floor(Math.random() * 5);
+    if (randomNumber === 0) {
+      return 10;
+    } else if (randomNumber === 1) {/// Darius girenas
+      return 20;
+    } else if (randomNumber === 2) {
+      return 30;
+    } else if (randomNumber === 3) {
+      return 40;
+    } else if (randomNumber === 4) {
+      return 50;
+    }
+  } else {
+    return 0;
+  }
+}
+
+const pointsElement = document.getElementById('bonus-points');
+const bonusPoint = generateBonusPoints();
+if (bonusPoint > 0) {
+  pointsElement.innerHTML += `+ Bonus: ${bonusPoint}`;
+  pointsElement.classList.remove('hidden-bonus');
+}
+
+
+
+
 function generateAndDisplayRandomPoint() {
   // Generate a random point from 1 to 5
   const randomPoint = Math.floor(Math.random() * 5) + 1;
