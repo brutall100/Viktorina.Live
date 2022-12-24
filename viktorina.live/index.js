@@ -1,93 +1,169 @@
 const database = {
-  1: {
-    question: "What is the capital of France?",
-    answers: ["Paris"],
-  },
-  2: {
-    question: "What is the largest ocean in the world?",
-    answers: ["Pacific Ocean"],
-  },
-  3: {
-    question: "What is the highest mountain in the world?",
-    answers: ["Everest"],
-  },
-  4: {
-    question: "What is the longest river in the world?",
-    answers: ["Nile"],
-  },
-  5: {
-    question: "Kas megsta saldainius?",
-    answers: ["Giedrius"],
-  },
-  6: {
-    question: "Kas daro netvarka?",
-    answers: ["Viktorija"],
-  },
-  6: {
-    question: "Seimos Narys?",
-    answers: ["Ugis"],
-  },
-  7: {
-    question: "Aldo gimimo metai?",
-    answers: ["1986"],
-  },
+  questions: [
+    {
+      id: 1,
+      question: "What is the capital of France?",
+      answers: "Paris",
+    },
+    {
+      id: 2,
+      question: "What is the largest ocean in the world?",
+      answers: "Pacific Ocean",
+    },
+    {
+      id: 3,
+      question: "What is the highest mountain in the world?",
+      answers: "Everest",
+    },
+    {
+      id: 4,
+      question: "What is the longest river in the world?",
+      answers: "Nile",
+    },
+    {
+      id: 5,
+      question: "Kas megsta saldainius?",
+      answers: "Giedrius",
+    },
+    {
+      id: 6,
+      question: "Kas daro netvarka?",
+      answers: "Viktorija",
+    },
+    {
+      id: 7,
+      question: "Seimos Narys?",
+      answers: "Ugis",
+    },
+    {
+      id: 8,
+      question: "Aldo gimimo metai?",
+      answers: "1986",
+    },
+  ]
 };
 
-function displayQuestionAndAnswers() {
-  // Get a random question and its answers
-  const randomIndex = Math.floor(Math.random() * Object.keys(database).length) + 1;
-  const question = database[randomIndex].question;
-  const answers = database[randomIndex].answers;
 
-  // Display the question in the "question" element
-  document.getElementById("question").innerHTML = question;
+function getRandomQuestion() {
+  // Get the keys of the questions object
+  const questionKeys = Object.keys(database.questions);
 
-  // Display the answers in the "answers" element
-  answers.forEach((answer) => {
-    const answerElement = document.createElement("div");
-    displayLettersWithDelay(answerElement, answer, 2000);
-    document.getElementById("answers").appendChild(answerElement);
-  });
+  // Generate a random index based on the length of the questionKeys array
+  const randomIndex = Math.floor(Math.random() * questionKeys.length);
+
+  // Get the question object at the random index
+  const question = database.questions[questionKeys[randomIndex]];
+
+  return question;
 }
 
-let dots = "";
-  for (let i = 0; i < answers.length; i++) {
-    dots += ".";
-  }
 
-  // Output the question and dots in the container div element
-  const container = document.getElementById("container");
-  const questionDiv = document.createElement("div");
-  questionDiv.innerHTML = `${question} (${dots})`;
-  container.appendChild(questionDiv);
+function displayQuestion(question) {
+  const questionElement = document.getElementById("question");
+  questionElement.innerText = question.question;
 
+  const answersElement = document.getElementById("answers");
+  answersElement.innerHTML = "";
+  displayLettersWithDelay(answersElement, question.answers, 2000);
+}
 
 
 function displayLettersWithDelay(element, string, delay) {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < string.length; i++) {
     setTimeout(() => {
       element.innerHTML += string[i];
     }, delay * i);
   }
 }
 
-
-
 function generateAndDisplayRandomPoint() {
   // Generate a random point from 1 to 5
   const randomPoint = Math.floor(Math.random() * 5) + 1;
   let litoVerte = "";
-  
-  // Determine the value of litoVerte based on the value of randomPoint
+  let imageSrc = "";
+
+  // Determine the value of litoVerte and imageSrc based on the value of randomPoint
   if (randomPoint === 1) {
     litoVerte = "Litas";
-  } else {
-    litoVerte = "Litai";
-  }
   
+    const image1Element = document.createElement("img");
+    image1Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image1Element.alt = "Klausimo verte vienas Litas";
+    image1Element.classList.add("on-off-litai"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image1Element);
+    
+  } 
+  else if (randomPoint === 2) {
+    litoVerte = "Litai";
+
+    const image1Element = document.createElement("img");
+    image1Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image1Element.alt = "1 Lt";
+    image1Element.classList.add("on-off-litai1"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image1Element);
+
+    const image2Element = document.createElement("img");
+    image2Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image2Element.alt = "1 Lt";
+    image1Element.classList.add("on-off-litai"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image2Element);
+  }
+  else if (randomPoint === 3) {
+    litoVerte = "Litai";
+
+    // Display multiple images
+    const image1Element = document.createElement("img");
+    image1Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image1Element.alt = "1 Lt";
+    image1Element.classList.add("on-off-litai"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image1Element);
+
+    const image2Element = document.createElement("img");
+    image2Element.src = "/viktorina.live/images/ImgLitai/2Lt.png";
+    image2Element.alt = "1 Lt";
+    image1Element.classList.add("on-off-litai"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image2Element);
+  }
+  else if (randomPoint === 4) {
+    litoVerte = "Litai";
+
+    // Display multiple images
+    const image1Element = document.createElement("img");
+    image1Element.src = "/viktorina.live/images/ImgLitai/2Lt.png";
+    image1Element.alt = "1 Lt";
+    image1Element.classList.add("on-off-litai"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image1Element);
+
+    const image2Element = document.createElement("img");
+    image2Element.src = "/viktorina.live/images/ImgLitai/2Lt.png";
+    image2Element.alt = "1 Lt";
+    image1Element.classList.add("on-off-litai"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image2Element);
+  }
+  else if (randomPoint === 5) {
+    litoVerte = "Litai";
+  
+    const image1Element = document.createElement("img");
+    image1Element.src = "/viktorina.live/images/ImgLitai/5Lt.png";
+    image1Element.alt = "1 Lt";
+    image1Element.classList.add("new-class1"); // Add the new class here
+    document.getElementById("litai-img").appendChild(image1Element);
+  } 
+  else {
+    litoVerte = "Litai";
+    imageSrc = "/ImgLitai/2Lt.png";
+  }
+
   // Display the random point in the "points" element
   document.getElementById("points").innerHTML = `Verte: ${randomPoint} ${litoVerte}`;
+
+  // Display the image in the "image" element
+  const imageElement = document.getElementById("litai-img");
+  imageElement.src = imageSrc;
+  imageElement.alt = `${randomPoint} ${litoVerte}`;
+  
 }
+
 
 
 function refreshPage() {
@@ -96,10 +172,13 @@ function refreshPage() {
   }, 8000); // 8000 milliseconds = 8 seconds
 }
 
-displayQuestionAndAnswers();
+const question = getRandomQuestion();
+displayQuestion(question);
 generateAndDisplayRandomPoint();
 refreshPage();
-displayLetters(container, answers.length);
+
+// Get a reference to the form
+
 
 
  // Get a reference to the form element
