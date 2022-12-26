@@ -12,6 +12,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+    
 }
 
 .imported-header {
@@ -28,19 +29,77 @@ body {
 .super-container {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top:15%;
+    left: 50%; /* Change the left position to 50% */
+    transform: translate(-50%, 0);
     margin: auto;
     width: 80%;
     /* or any other desired width */
-    height: 80%;
+    height: 200px;
     /* or any other desired height */
     justify-content: center;
     align-items: center;
+    border: 1px solid rebeccapurple;
 }
+
+#question{
+    font-family: 'PT Serif', serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+#answer-form {
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 5%; */
+  }
+ 
+  .submit-btn {
+    color: rgb(43, 68, 64);
+    padding: .5em;
+    margin: .5rem 0 0 0;
+    font-weight: 900;
+    transition: background-color 0.2s, transform 0.2s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #333;
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
+  .submit-btn:active {
+    background-color: #333;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .submit-btn {
+    animation: pulse 2s infinite;
+  }
+  
+  
 
 .litas-container {
     position: absolute;
     bottom: 22%;
-    left: 50%; /* Change the left position to 50% */
+    left: 10%; /* Change the left position to 50% */
     transform: translate(-50%, 0); /* Use translate to adjust the element's position */
     display: flex;
     justify-content: center;
@@ -51,6 +110,15 @@ body {
     /* border: 1px solid black; */
 
   }
+
+  @media (max-width: 550px) {
+    section {
+      display: none;
+    }
+  }
+  
+
+
 
   .points-container .super {
     float: left;
@@ -68,6 +136,74 @@ img {
     opacity: 0.8; /* Set the transparency to 70% */
     box-shadow: 0 0 10px 5px rgba(38, 66, 64, 0.5); /* Add a green shadow with 50% transparency */
   }
+
+ @media(max-width: 550px) {
+    /* img {
+        width: 100px;
+        opacity: 0.8; 
+        box-shadow: 0 0 10px 5px rgba(38, 66, 64, 0.5); 
+      } */
+ } 
+  
+ 
+ 
+ /* Chat container */
+ #chat-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%; /* Change the left position to 50% */
+    transform: translate(-50%, 0); 
+    width: 500px;
+    height: 330px;
+    border: 1px solid #ccc;
+    /* overflow-y: scroll; */
+    display: flex;
+    /* margin: auto; */
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  #chat-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px;
+  }
+  
+  #chat-messages div {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+  }
+  
+  #chat-input {
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+  }
+  
+  #chat-button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+  .time {
+    color: rgb(20, 14, 14);
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+ 
+  
+
   
   
   

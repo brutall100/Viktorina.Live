@@ -103,7 +103,7 @@ const pointsElement = document.getElementById('bonus-points');
 const imageElement = document.getElementById('litai-img');
 const bonusPoint = generateBonusPoints();
 if (bonusPoint > 0) {
-  pointsElement.innerHTML = `+ Bonus: ${bonusPoint}`;
+  pointsElement.innerHTML = ` + Bonus: ${bonusPoint}`;
   imageElement.innerHTML = `<img src="/viktorina.live/images/ImgLitai/${bonusPoint}Lt.png" alt="${bonusPoint} Lt">`; // 
 } else {
   pointsElement.style.display = "none";
@@ -190,7 +190,7 @@ function generateAndDisplayRandomPoint() {
   }
 
   // Display the random point in the "points" element
-  document.getElementById("points").innerHTML = `Verte: ${randomPoint} ${litoVerte}`;
+  document.getElementById("points").innerHTML = `Verte: ${randomPoint} ${litoVerte} `;
 
   // Display the image in the "image" element
   const imageElement = document.getElementById("litai-img");
@@ -231,6 +231,55 @@ refreshPage();
    // ...
  })
    
+//  Chatt container
+function getFormattedTime() {
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+const chatContainer = document.getElementById('chat-container');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+const chatButton = document.getElementById('chat-button');
+
+// Save the text to localStorage
+localStorage.setItem('inputText', chatInput.value);
+
+// Retrieve the text from localStorage
+const storedText = localStorage.getItem('inputText');
+
+// Update the input field with the stored text
+if (storedText) {
+  chatInput.value = storedText;
+}
+
+chatButton.addEventListener('click', () => {
+  const message = chatInput.value;
+  const time = getFormattedTime();
+  chatInput.value = '';
+  chatMessages.innerHTML += `<div><span class="time">${time}</span> ${message}</div>`;
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  // Save the messages to localStorage
+  const messages = chatMessages.innerHTML;
+  localStorage.setItem('messages', messages);
+});
+
+
+// Retrieve the messages from localStorage
+const storedMessages = localStorage.getItem('messages');
+
+// Update the chat dialog box with the stored messages
+if (storedMessages) {
+  chatMessages.innerHTML = storedMessages;
+}
+
+
+
+
   
 
 

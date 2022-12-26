@@ -1,14 +1,13 @@
 function updateClock() {
-    var now = new Date();
-    var hours = now.getHours();
-    var minutes = now.getMinutes();
-    var clockElement = document.getElementById('clock');
-    clockElement.innerText = hours + ':' + minutes;
-  }
-  setInterval(updateClock, 1000);
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var clockElement = document.getElementById('clock');
+  clockElement.innerText = hours.toLocaleString('en-US', {minimumIntegerDigits: 2}) + ':' + minutes.toLocaleString('en-US', {minimumIntegerDigits: 2});
+}
+setInterval(updateClock, 1000);
 
 
-  
 
 // Get the modal
 var modal = document.getElementById("myModal");
