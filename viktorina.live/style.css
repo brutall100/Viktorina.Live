@@ -34,7 +34,7 @@ body {
     left: 50%; /* Change the left position to 50% */
     transform: translate(-50%, 0);
     margin: auto;
-    width: 80%;
+    width: 90%;
     /* or any other desired width */
     height: 200px;
     /* or any other desired height */
@@ -42,6 +42,17 @@ body {
     align-items: center;
     border: 1px solid rebeccapurple;
 }
+
+.super{
+  font-size: 1.3em;
+}
+
+#dot-answer{
+  font-size: 20px;
+  color: rgb(150, 5, 5);
+  border: 1px solid red;
+}
+
 
 #question{
     font-family: 'PT Serif', serif;

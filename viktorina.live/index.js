@@ -23,7 +23,7 @@ const database = {
     {
       id: 5,
       question: "Kas megsta saldainius?",
-      answers: "Giedrius",
+      answers: "Giedrius Pamparam",
     },
     {
       id: 6,
@@ -33,7 +33,7 @@ const database = {
     {
       id: 7,
       question: "Seimos Narys?",
-      answers: "Ugis",
+      answers: "Ugis 1",
     },
     {
       id: 8,
@@ -59,13 +59,40 @@ function getRandomQuestion() {
 
 
 function displayQuestion(question) {
-  const questionElement = document.getElementById("question");
-  questionElement.innerText = question.question;
+  const questionElement = document.getElementById("question")
+  questionElement.innerText = question.question
 
-  const answersElement = document.getElementById("answers");
-  answersElement.innerHTML = "";
-  displayLettersWithDelay(answersElement, question.answers, 2000);
+  const answersElement = document.getElementById("answers")
+  answersElement.innerHTML = ""
+
+  const dotsElement = document.getElementById("dot-answer")
+  dotsElement.innerHTML = ""
+
+  const lenghtElement = document.getElementById("dot-answer-lenght")
+  lenghtElement.innerText = question.answers.length
+
+  // Split the answer into an array of words
+  const words = question.answers.split(" ");
+
+  // Loop through the words and add a dot for each character
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      dotsElement.innerHTML += " . "
+    }
+
+    // Add a space after each word, except for the last word
+    if (i < words.length - 1) {
+      dotsElement.innerHTML += "_"
+    }
+  }
+  
+  displayLettersWithDelay(answersElement, question.answers, 2000)
 }
+
+
+
+
+
 
 
 function displayLettersWithDelay(element, string, delay) {
@@ -231,51 +258,55 @@ refreshPage();
    // ...
  })
    
-//  Chatt container
-function getFormattedTime() {
-  const date = new Date();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const seconds = date.getSeconds();
-  return `${hours}:${minutes}:${seconds}`;
-}
-
-const chatContainer = document.getElementById('chat-container');
-const chatMessages = document.getElementById('chat-messages');
-const chatInput = document.getElementById('chat-input');
-const chatButton = document.getElementById('chat-button');
-
-// Save the text to localStorage
-localStorage.setItem('inputText', chatInput.value);
-
-// Retrieve the text from localStorage
-const storedText = localStorage.getItem('inputText');
-
-// Update the input field with the stored text
-if (storedText) {
-  chatInput.value = storedText;
-}
-
-chatButton.addEventListener('click', () => {
-  const message = chatInput.value;
-  const time = getFormattedTime();
-  chatInput.value = '';
-  chatMessages.innerHTML += `<div><span class="time">${time}</span> ${message}</div>`;
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-
-  // Save the messages to localStorage
-  const messages = chatMessages.innerHTML;
-  localStorage.setItem('messages', messages);
-});
 
 
-// Retrieve the messages from localStorage
-const storedMessages = localStorage.getItem('messages');
 
-// Update the chat dialog box with the stored messages
-if (storedMessages) {
-  chatMessages.innerHTML = storedMessages;
-}
+
+// //  Chatt container
+// function getFormattedTime() {
+//   const date = new Date();
+//   const hours = date.getHours();
+//   const minutes = date.getMinutes();
+//   const seconds = date.getSeconds();
+//   return `${hours}:${minutes}:${seconds}`;
+// }
+
+// const chatContainer = document.getElementById('chat-container');
+// const chatMessages = document.getElementById('chat-messages');
+// const chatInput = document.getElementById('chat-input');
+// const chatButton = document.getElementById('chat-button');
+
+// // Save the text to localStorage
+// localStorage.setItem('inputText', chatInput.value);
+
+// // Retrieve the text from localStorage
+// const storedText = localStorage.getItem('inputText');
+
+// // Update the input field with the stored text
+// if (storedText) {
+//   chatInput.value = storedText;
+// }
+
+// chatButton.addEventListener('click', () => {
+//   const message = chatInput.value;
+//   const time = getFormattedTime();
+//   chatInput.value = '';
+//   chatMessages.innerHTML += `<div><span class="time">${time}</span> ${message}</div>`;
+//   chatContainer.scrollTop = chatContainer.scrollHeight;
+
+//   // Save the messages to localStorage
+//   const messages = chatMessages.innerHTML;
+//   localStorage.setItem('messages', messages);
+// });
+
+
+// // Retrieve the messages from localStorage
+// const storedMessages = localStorage.getItem('messages');
+
+// // Update the chat dialog box with the stored messages
+// if (storedMessages) {
+//   chatMessages.innerHTML = storedMessages;
+// }
 
 
 
