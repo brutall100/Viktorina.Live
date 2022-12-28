@@ -45,14 +45,11 @@ const database = {
 
 
 function getRandomQuestion() {
-  // Get the keys of the questions object
-  const questionKeys = Object.keys(database.questions);
-
-  // Generate a random index based on the length of the questionKeys array
-  const randomIndex = Math.floor(Math.random() * questionKeys.length);
+  // Generate a random index based on the length of the questions array
+  const randomIndex = Math.floor(Math.random() * database.questions.length);
 
   // Get the question object at the random index
-  const question = database.questions[questionKeys[randomIndex]];
+  const question = database.questions[randomIndex];
 
   return question;
 }
@@ -73,33 +70,30 @@ function displayQuestion(question) {
 
   // Split the answer into an array of words
   const words = question.answers.split(" ");
-
+  const underscore = "_"
   // Loop through the words and add a dot for each character
   for (let i = 0; i < words.length; i++) {
     for (let j = 0; j < words[i].length; j++) {
-      dotsElement.innerHTML += " . "
+      dotsElement.innerHTML += " &#x2B1C; "
     }
-
+  
     // Add a space after each word, except for the last word
     if (i < words.length - 1) {
-      dotsElement.innerHTML += "_"
+  dotsElement.innerHTML += `${underscore}`
     }
   }
   
-  displayLettersWithDelay(answersElement, question.answers, 2000)
+  
+  displayLettersWithDelay(answersElement, question.answers, 3000)
 }
 
 
 
-
-
-
-
 function displayLettersWithDelay(element, string, delay) {
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < 4; i++) {
     setTimeout(() => {
       element.innerHTML += string[i];
-    }, delay * i);
+    }, 5000 + delay * i);
   }
 }
 
@@ -231,7 +225,7 @@ function generateAndDisplayRandomPoint() {
 function refreshPage() {
   setTimeout(() => {
     location.reload();
-  }, 8000); // 8000 milliseconds = 8 seconds
+  }, 17000); // 8000 milliseconds = 8 seconds
 }
 
 const question = getRandomQuestion();
