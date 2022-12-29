@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naujo klausimo įrašymas</title>
+    <link rel="stylesheet" href="/headerstyle.css">
+    <link rel="stylesheet" href="newguestion.css">
+</head>
+<body>
+    <header class="header">
+        <ul>
+          <img class="logo" src="/viktorina.live/images/icons/viktorina_logo.png"/>
+          <div>
+            <li><a href="/viktorina.live/index.html">Viktorina</a></li>
+            <li><a href="#news">Naujienos</a></li>
+            <li><a href="/viktorina.live/NewQuestionInsert/newquestionindex.html">Irašyti klausimą</a></li>
+            <!-- <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Irašyti klausimą </a>
+              <div class="dropdown-content">
+              <a href="#">Paprastas</a>
+              <a href="#">Vaizdo</a>
+              <a href="#">Specialus</a>
+            </li> -->
+          </div>
+          <button>Back</button>
+        </ul>
+      </header>
+
+
+    <main class="main">
+        <div class="main-form">
+            <form action="/submit-question" method="post">
+                <label for="name">Autorius:</label><br>  <!-- Registered user fiils automatic , not registered ip or useful info--> 
+                <input type="text" id="name" name="name"><br>
+
+                <label for="question">Klausimas:</label><br>
+                <textarea id="question" name="question"></textarea><br>
+
+                <label for="answer">Atsakymas:</label><br>
+                <textarea id="answer" name="answer"></textarea><br>
+
+                <input type="submit" value="Įrašyti">
+            </form>
+        </div>           
+    </main>
+    
+    
+    <footer class="footer">
+        <object data="/viktorina.live/Footer/footer.html" class="imported-footer"></object>
+    </footer>
+</body>
+</html>
