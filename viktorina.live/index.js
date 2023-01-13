@@ -44,6 +44,80 @@ const database = {
 };
 
 
+
+
+
+
+const mysql = require('mysql2');
+
+// Create a connection to the MySQL database
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'viktorina'
+});
+
+// Connect to the database
+connection.connect();
+
+// SQL query to select all rows from the question_answer table
+const query = 'SELECT id, user, question, answer FROM viktorina.question_answer';
+
+// Execute the query
+connection.query(query, function (err, results) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
+  // Update the database object with the results
+  database.questions = results;
+});
+
+// Close the connection
+connection.end();
+
+function displayQuestion(question) {
+  const questionElement = document.getElementById("question")
+  questionElement.innerText = question.question
+
+  const answersElement = document.getElementById("answers")
+  answersElement.innerHTML = ""
+
+  const dotsElement = document.getElementById("dot-answer")
+  dotsElement.innerHTML = ""
+
+  const lenghtElement = document.getElementById("dot-answer-lenght")
+  lenghtElement.innerText = question.answer.length // Update this line to use question.answer instead of question.answers
+
+  // Split the answer into an array of words
+  const words = question.answer.split(" ");
+  const underscore = "_"
+  // Loop through the words and add a dot for each character
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      dotsElement.innerHTML += " &#x2B1C; "
+    }
+  
+    // Add a space after each word, except for the last word
+    if (i < words.length - 1) {
+  dotsElement.innerHTML += `${underscore}`
+    }
+  }
+  
+  
+  displayLettersWithDelay(answersElement, question.answer, 3000) // Update this line to use question.answer instead of question.answers
+}
+
+
+
+
+
+
+
+
+
 function getRandomQuestion() {
   // Generate a random index based on the length of the questions array
   const randomIndex = Math.floor(Math.random() * database.questions.length);
